@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - GymFit</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — IRONCORE</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
-    <nav class="navbar">
-        <a href="index.html" class="logo">GymFit.</a>
-    </nav>
-    
-    <div class="auth-container">
-        <div class="auth-card">
-            <h2>Welcome Back</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="member@gym.com" required>
-                    <div id="emailError" class="error-msg"></div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
-                    <div id="passwordError" class="error-msg"></div>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign In to Dashboard</button>
-            </form>
-            <div class="auth-link">
-                Don't have an account? <a href="register.html">Register here</a>
-            </div>
-            
-            <!-- Quick hints for testing purposes -->
-            <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--text-muted); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
-                <p>Login Hints for Demo:</p>
-                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;">
-                    <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">admin@gym.com</span>
-                    <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">trainer@gym.com</span>
-                    <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">member@gym.com</span>
-                </div>
-            </div>
-        </div>
+<body class="page-enter">
+  <div class="auth-layout">
+    <div class="auth-left">
+      <a href="index.html" class="nav-logo mb-2" style="font-size: 2.5rem; justify-content: flex-start;">⬡<span class="nav-logo-icon">IRONCORE</span></a>
+      <h2 style="font-size: 2.8rem; line-height: 1.1; margin-bottom: 1rem;">WELCOME BACK,<br>CHAMPION.</h2>
+      <p class="text-muted" style="max-width: 400px; line-height: 1.6;">Log in to track your sessions, manage your team, and keep the momentum going.</p>
+      <svg style="position: absolute; bottom: 20px; right: 20px; width: 250px; opacity: 0.05; fill: var(--accent-primary);" viewBox="0 0 100 100"><polygon points="50 0 100 25 100 75 50 100 0 75 0 25"/></svg>
     </div>
+    <div class="auth-right">
+      <div class="card" style="width: 100%; max-width: 420px; border-top: 4px solid var(--accent-primary);">
+        <div class="badge badge-blue mb-1">Member Login</div>
+        <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Sign Into Your Account</h3>
+        <p class="text-secondary mb-2" style="font-size: 0.85rem;">Don't have an account? <a href="register.html" style="color: var(--accent-primary);">Join Free →</a></p>
+        
+        <div class="form-group mb-1">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="input-field" placeholder="you@example.com">
+        </div>
+        
+        <div class="form-group mb-1">
+          <label for="login-password">Password</label>
+          <div style="position: relative;">
+            <input type="password" id="login-password" class="input-field" placeholder="••••••••">
+            <button class="toggle-pass" style="position: absolute; right: 10px; top: 10px; background: none; border: none; color: var(--text-muted); cursor: pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="form-group mb-2 pt-1 border-top" style="border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+          <label>Sign in as</label>
+          <div class="role-pills">
+            <div class="role-pill active" data-role="member">Member</div>
+            <div class="role-pill" data-role="trainer">Trainer</div>
+            <div class="role-pill" data-role="admin">Admin</div>
+          </div>
+        </div>
+
+        <div id="login-error" class="error-msg mb-1"></div>
+        <button id="login-btn" class="btn-primary w-full">LOG IN →</button>
+        <div class="text-center mt-1" style="text-align: center;">
+          <p class="text-muted" style="font-size: 0.8rem;">Forgot password? <a href="#" style="color: var(--text-primary);">Reset it here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

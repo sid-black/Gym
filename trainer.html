@@ -1,91 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trainer Dashboard - GymFit</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainer Dashboard — IRONCORE</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js" defer></script>
 </head>
-<body>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <div class="logo">GymFit.</div>
-            <ul class="sidebar-nav">
-                <li><a href="#" class="active">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    Daily Schedule</a>
-                </li>
-                <li><a href="#">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    My Clients</a>
-                </li>
-                <li><a href="#">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                    Workout Plans</a>
-                </li>
-                <li style="margin-top: auto;"><a href="index.html" style="color: var(--danger);">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                    Sign Out</a>
-                </li>
-            </ul>
-        </aside>
-        
-        <main class="main-content">
-            <header class="header-top">
-                <h2>Trainer Portal</h2>
-                <div class="user-profile">
-                    <span>Sarah Jenkins</span>
-                    <div class="avatar">SJ</div>
-                </div>
-            </header>
+<body style="overflow-x: hidden;">
+  <div id="page-curtain" style="position:fixed; inset:0; z-index:9999; background:var(--accent-primary); pointer-events:none; transform-origin:bottom center; transform:scaleY(0);"></div>
+  <nav id="main-nav" style="display: none;"></nav>
+
+  <div class="dash-layout">
+    <button id="sidebar-toggle" class="mobile-toggle" style="position: absolute; top: 20px; left: 20px; z-index: 1000;">☰</button>
+    <aside class="sidebar" style="position: relative;">
+      <a href="index.html" class="nav-logo" style="margin-bottom: 0.5rem;">⬡<span class="nav-logo-icon">IRONCORE</span></a>
+      <div class="badge badge-yellow" style="align-self: flex-start;">Trainer</div>
+      <div style="border-bottom: 1px solid var(--border-subtle); margin: 1rem 0;"></div>
+      
+      <div style="position: relative; flex: 1;">
+        <div class="nav-indicator" style="position: absolute; left: 0; width: 3px; background: var(--accent-primary); border-radius: 0 2px 2px 0;"></div>
+        <nav style="display: flex; flex-direction: column; position: relative;">
+          <a href="#" class="nav-item active"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Dashboard</a>
+          <a href="#" class="nav-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> My Schedule</a>
+          <a href="#" class="nav-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Clients Overview</a>
+          <a href="#" class="nav-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Profile Settings</a>
+        </nav>
+      </div>
+
+      <div class="user-info-block" style="display: flex; gap: 0.85rem; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: auto;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent-glow); color: var(--accent-primary); display: grid; place-items: center; font-weight: bold; font-family: 'Barlow Condensed'; font-size: 1.2rem;">MB</div>
+        <div>
+          <div style="font: 500 0.9rem 'DM Sans'; color: var(--text-primary);">Marcus B.</div>
+          <div style="font: 400 0.75rem 'DM Sans'; color: var(--text-muted);">Lead Trainer</div>
+          <a href="index.html" class="nav-logout" style="font: 400 0.8rem 'DM Sans'; color: var(--text-muted); display: block; margin-top: 0.2rem;">Logout</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="header-top flex-between mb-2">
+        <div>
+          <h2 style="font-size: 1.6rem; margin-bottom: 0;">TRAINER DASHBOARD</h2>
+          <p class="text-muted" style="font-size: 0.85rem;">Let's get people moving today.</p>
+        </div>
+        <button class="btn-primary">View Full Schedule</button>
+      </div>
+
+      <div class="grid-4 mb-2">
+        <div class="stat-card card">
+          <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="stat-label">Active Clients</div><div class="stat-value" data-target="24">0</div><div class="stat-delta text-green">Fully booked</div></div>
+        </div>
+        <div class="stat-card card">
+          <div class="stat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div><div class="stat-label">Sessions Today</div><div class="stat-value" data-target="6">0</div><div class="stat-delta text-blue">2 hours remaining</div></div>
+        </div>
+        <div class="stat-card card">
+          <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 20v-6M6 20V10M18 20V4"/></svg></div>
+          <div><div class="stat-label">This Week Hours</div><div class="stat-value" data-target="32">0</div><div class="stat-delta text-green">+4 hrs overtime</div></div>
+        </div>
+        <div class="stat-card card">
+          <div class="stat-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div><div class="stat-label">Client Rating</div><div class="stat-value" data-target="4.9">0.0</div><div class="stat-delta text-green">Top 5%</div></div>
+        </div>
+      </div>
+
+      <div class="grid-2 mb-2">
+        <div class="card">
+          <h3 class="mb-1">TODAY'S SCHEDULE</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
             
-            <div class="cards-grid">
-                <div class="stat-card">
-                    <div class="stat-title">Assigned Clients</div>
-                    <div class="stat-value">32</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Capacity: 40</div>
-                </div>
-                <div class="stat-card" style="border-left: 4px solid #f43f5e;">
-                    <div class="stat-title">Today's Sessions</div>
-                    <div class="stat-value">6</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">2 sessions completed</div>
-                </div>
-                <div class="stat-card" style="border-left: 4px solid #14b8a6;">
-                    <div class="stat-title">Weekly Hours</div>
-                    <div class="stat-value">28.5</div>
-                    <div style="font-size: 0.85rem; color: var(--primary); margin-top: 0.5rem; font-weight: 500;">On track with target</div>
-                </div>
+            <div style="background: rgba(200,241,53,0.05); border-left: 3px solid var(--accent-primary); border-radius: 4px; padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <div style="font: 700 1.1rem 'Barlow Condensed'; color: var(--accent-primary);">07:00 AM — 08:00 AM</div>
+                <div style="font: 500 0.9rem 'DM Sans'; color: var(--text-primary); margin-top: 0.2rem;">Strength & Conditioning</div>
+                <div style="font: 400 0.8rem 'DM Sans'; color: var(--text-muted);">Client: Alex Johnson</div>
+              </div>
+              <span class="badge badge-green">Completed</span>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border-left: 3px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <div style="font: 700 1.1rem 'Barlow Condensed'; color: var(--text-primary);">09:00 AM — 10:00 AM</div>
+                <div style="font: 500 0.9rem 'DM Sans'; color: var(--text-primary); margin-top: 0.2rem;">HIIT Fundamentals</div>
+                <div style="font: 400 0.8rem 'DM Sans'; color: var(--text-muted);">Client: Rahul Kumar</div>
+              </div>
+              <span class="badge badge-green">Completed</span>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 3px solid #f5a623; border-radius: 4px; padding: 1rem; display: flex; align-items: center; justify-content: space-between; transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+              <div>
+                <div style="font: 700 1.1rem 'Barlow Condensed'; color: #f5a623;">02:00 PM — 03:00 PM</div>
+                <div style="font: 500 0.9rem 'DM Sans'; color: var(--text-primary); margin-top: 0.2rem;">Core Power</div>
+                <div style="font: 400 0.8rem 'DM Sans'; color: var(--text-muted);">Group Session (8 members)</div>
+              </div>
+              <span class="badge badge-yellow">Up Next</span>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border-left: 3px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <div style="font: 700 1.1rem 'Barlow Condensed'; color: var(--text-primary);">05:30 PM — 06:30 PM</div>
+                <div style="font: 500 0.9rem 'DM Sans'; color: var(--text-primary); margin-top: 0.2rem;">Weight Loss Journey</div>
+                <div style="font: 400 0.8rem 'DM Sans'; color: var(--text-muted);">Client: Priya Singh</div>
+              </div>
+              <span class="badge badge-blue">Scheduled</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="flex-between mb-1" style="align-items: center;">
+            <h3>CLIENT PERFORMANCE</h3>
+            <button class="btn-ghost" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">View All</button>
+          </div>
+          <p class="text-muted mb-2" style="font-size: 0.85rem;">Recent assessments and milestone tracking</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <div class="flex-between mb-1" style="font: 500 0.85rem 'DM Sans';">
+                <span>Alex Johnson (Strength)</span><span class="text-green">+12% in 1M</span>
+              </div>
+              <div style="height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden; position: relative;">
+                <div style="position: absolute; left: 0; top: 0; height: 100%; width: 85%; background: linear-gradient(to right, rgba(200,241,53,0.5), var(--accent-primary)); border-radius: 3px;"></div>
+              </div>
             </div>
             
-            <div class="dashboard-section">
-                <h3>Today's Agenda</h3>
-                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
-                    
-                    <div style="padding: 1.25rem; background: rgba(16, 185, 129, 0.05); border-radius: 8px; border-left: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h4 style="margin-bottom: 0.25rem;">Alex M. - Strength Training</h4>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">Goal: Increase Deadlift max</p>
-                        </div>
-                        <div style="text-align: right;">
-                            <span style="font-weight: 600; color: var(--primary); display: block;">5:00 PM</span>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">In 2 hours</span>
-                        </div>
-                    </div>
-                
-                    <div style="padding: 1.25rem; background: rgba(255,255,255,0.02); border-radius: 8px; border-left: 4px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; opacity: 0.8;">
-                        <div>
-                            <h4 style="margin-bottom: 0.25rem;">Jessica T. - Cardio HIIT</h4>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">Goal: Weight loss maintenance</p>
-                        </div>
-                        <div style="text-align: right;">
-                            <span style="font-weight: 500; display: block;">6:30 PM</span>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">Later today</span>
-                        </div>
-                    </div>
-                    
-                </div>
+            <div>
+              <div class="flex-between mb-1" style="font: 500 0.85rem 'DM Sans';">
+                <span>Rahul Kumar (Endurance)</span><span class="text-green">+5% in 1M</span>
+              </div>
+              <div style="height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden; position: relative;">
+                <div style="position: absolute; left: 0; top: 0; height: 100%; width: 60%; background: linear-gradient(to right, rgba(200,241,53,0.5), var(--accent-primary)); border-radius: 3px;"></div>
+              </div>
             </div>
-        </main>
-    </div>
+
+            <div>
+              <div class="flex-between mb-1" style="font: 500 0.85rem 'DM Sans';">
+                <span>Priya Singh (Weight Loss)</span><span class="text-blue">On Track</span>
+              </div>
+              <div style="height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden; position: relative;">
+                <div style="position: absolute; left: 0; top: 0; height: 100%; width: 45%; background: linear-gradient(to right, #4a90e2, #6bb9f0); border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <button class="btn-ghost w-full mt-2" style="border: 1px dashed var(--border-subtle);">+ Add Client Note</button>
+        </div>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
