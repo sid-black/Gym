@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Dashboard - GymFit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">GymFit.</div>
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Daily Schedule</a>
+                </li>
+                <li><a href="#">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    My Clients</a>
+                </li>
+                <li><a href="#">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    Workout Plans</a>
+                </li>
+                <li style="margin-top: auto;"><a href="index.html" style="color: var(--danger);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Sign Out</a>
+                </li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header-top">
+                <h2>Trainer Portal</h2>
+                <div class="user-profile">
+                    <span>Sarah Jenkins</span>
+                    <div class="avatar">SJ</div>
+                </div>
+            </header>
+            
+            <div class="cards-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Assigned Clients</div>
+                    <div class="stat-value">32</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Capacity: 40</div>
+                </div>
+                <div class="stat-card" style="border-left: 4px solid #f43f5e;">
+                    <div class="stat-title">Today's Sessions</div>
+                    <div class="stat-value">6</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">2 sessions completed</div>
+                </div>
+                <div class="stat-card" style="border-left: 4px solid #14b8a6;">
+                    <div class="stat-title">Weekly Hours</div>
+                    <div class="stat-value">28.5</div>
+                    <div style="font-size: 0.85rem; color: var(--primary); margin-top: 0.5rem; font-weight: 500;">On track with target</div>
+                </div>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>Today's Agenda</h3>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
+                    
+                    <div style="padding: 1.25rem; background: rgba(16, 185, 129, 0.05); border-radius: 8px; border-left: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Alex M. - Strength Training</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Goal: Increase Deadlift max</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="font-weight: 600; color: var(--primary); display: block;">5:00 PM</span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">In 2 hours</span>
+                        </div>
+                    </div>
+                
+                    <div style="padding: 1.25rem; background: rgba(255,255,255,0.02); border-radius: 8px; border-left: 4px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; opacity: 0.8;">
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Jessica T. - Cardio HIIT</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Goal: Weight loss maintenance</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="font-weight: 500; display: block;">6:30 PM</span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">Later today</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

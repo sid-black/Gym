@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard - GymFit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">GymFit.</div>
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    My Dashboard</a>
+                </li>
+                <li><a href="#">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    Workout History</a>
+                </li>
+                <li><a href="#">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                    Diet Progress</a>
+                </li>
+                <li><a href="#">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    Book Session</a>
+                </li>
+                <li style="margin-top: auto;"><a href="index.html" style="color: var(--danger);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Log Out</a>
+                </li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header-top">
+                <h2>Welcome back, Alex!</h2>
+                <div class="user-profile">
+                    <span>Alex M.</span>
+                    <div class="avatar">AM</div>
+                </div>
+            </header>
+            
+            <div class="cards-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Membership Plan</div>
+                    <div class="stat-value" style="font-size: 1.8rem; margin-top: 0.5rem; color: var(--primary);">Premium Elite</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Status: <span style="color: var(--primary); font-weight: 500;">Active</span> (Auto-renews Dec 2026)</div>
+                </div>
+                <div class="stat-card" style="border-left: 4px solid #f59e0b;">
+                    <div class="stat-title">Assigned Trainer</div>
+                    <div class="stat-value" style="font-size: 1.6rem; margin-top: 0.5rem;">Sarah Jenkins</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Focus: Strength & Conditioning</div>
+                </div>
+                <div class="stat-card" style="border-left: 4px solid #ef4444;">
+                    <div class="stat-title">Upcoming Sessions</div>
+                    <div class="stat-value" style="font-size: 1.5rem; margin-top: 0.5rem;">Today, 5:00 PM</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Push/Pull Lower Body</div>
+                </div>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>Today's Goal</h3>
+                <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                        <span style="font-size: 4rem; display: block; margin-bottom: 0.5rem;">🔥</span>
+                        <h4 style="margin-bottom: 0.5rem;">Burn 500 kcal</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Hit your target during your session today.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

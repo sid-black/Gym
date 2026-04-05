@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GymFit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">GymFit.</a>
+    </nav>
+    
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="member@gym.com" required>
+                    <div id="emailError" class="error-msg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                    <div id="passwordError" class="error-msg"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In to Dashboard</button>
+            </form>
+            <div class="auth-link">
+                Don't have an account? <a href="register.html">Register here</a>
+            </div>
+            
+            <!-- Quick hints for testing purposes -->
+            <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--text-muted); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+                <p>Login Hints for Demo:</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">admin@gym.com</span>
+                    <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">trainer@gym.com</span>
+                    <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">member@gym.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
